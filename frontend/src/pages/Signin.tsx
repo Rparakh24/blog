@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { path } from "../port";
@@ -14,8 +14,13 @@ export const Signin = () => {
     email: "",
     password: "", 
   });
-
   const navigate = useNavigate();
+  useEffect(()=>{
+    if(localStorage.getItem("token")){
+    navigate(`/dash`);
+  }
+  },[navigate])
+  
 
   const handleSignin = async () => {
     const res = await axios.post(`${path}user/signin`, 
