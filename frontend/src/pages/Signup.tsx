@@ -28,6 +28,7 @@ export const Signup = () => {
   };
 
   const signup = async () => {
+    try{
     const res = await axios.post(`${path}user/signup`, {
       name: input.username,
       email: input.email,
@@ -37,6 +38,8 @@ export const Signup = () => {
       const token = res.data.token;
       localStorage.setItem("token", token);
       navigate("/dash");
+    }}catch(e){
+      alert("Invalid Credentials");
     }
   };
 
