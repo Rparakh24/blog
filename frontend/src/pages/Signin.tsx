@@ -27,13 +27,10 @@ export const Signin = () => {
     {
     email: input.email,
     password: input.password,
-    },
-    {
-        headers:{
-            Authorization: `${localStorage.getItem("token")}`
-        }
-    });
+    }
+    );
     if (res.data.success) {
+      localStorage.setItem("token", res.data.token);
       navigate("/dash");
     }
   };
