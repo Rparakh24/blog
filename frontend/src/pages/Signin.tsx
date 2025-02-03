@@ -24,7 +24,7 @@ export const Signin = () => {
   const signin = async () => {
     const res = await axios.post(`${path}user/signin`, 
     {
-    email: input.email,
+    email: input.email.toLowerCase,
     password: input.password,
     },
     {

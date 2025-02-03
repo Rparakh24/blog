@@ -26,7 +26,7 @@ export const Signup = () => {
   const signup = async () => {
     const res = await axios.post(`${path}user/signup`, {
       name: input.username,
-      email: input.email,
+      email: input.email.toLowerCase,
       password: input.password,
     });
     if (res.data.success) {
