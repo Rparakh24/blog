@@ -18,13 +18,9 @@ export const Signin = () => {
   const navigate = useNavigate();
 
   const handleSignin = async () => {
-    await signin();
-  };
-
-  const signin = async () => {
     const res = await axios.post(`${path}user/signin`, 
     {
-    email: input.email.toLowerCase,
+    email: input.email,
     password: input.password,
     },
     {
