@@ -13,7 +13,7 @@ export const Create = () => {
     const navigate = useNavigate();
     useEffect(()=>{
         handleClick();
-    })
+    },[username])
     const handleClick = async() => {
         const res = await axios.get(`${path}blog/me`,{
             headers:{
@@ -33,7 +33,6 @@ export const Create = () => {
             }
         });
         navigate(`/read?id=${res.data.id}`);
-        console.log(res);
     };
 
     return (
