@@ -1,5 +1,5 @@
 import React from "react";
-import parse from "html-react-parser";
+// import parse from "html-react-parser";
 import {convert} from "html-to-text";
 import dompurify from "dompurify";
 
@@ -12,8 +12,7 @@ interface BlogProps {
 }
 
 const Blog: React.FC<BlogProps> = ({ title, content, author, date, onClick }) => {
-
-    const text = convert(content,{wordwrap:false});
+    const text = convert(dompurify.sanitize(content),{wordwrap:false});
   return (
     <div onClick={onClick} className="w-3/4 mx-auto py-6 border-b">
       <div  className="flex items-center gap-2 text-gray-600 text-sm">
