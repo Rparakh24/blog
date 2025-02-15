@@ -39,6 +39,7 @@ export const Signup = () => {
       localStorage.setItem("token", token);
       navigate("/dash");
     }}catch(e){
+      console.log(e); 
       alert("Invalid Credentials");
     }
   };
